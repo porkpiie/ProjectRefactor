@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
-import CreateTodo from "./components/create-todo.component";
-import EditTodo from "./components/edit-todo.component";
+import AddPlayer from "./components/create-todo.component";
+import EditPlayer from "./components/edit-todo.component";
 import TodosList from "./components/todos-list.component";
 
 import logo from "./hockeypng.png";
@@ -40,8 +40,8 @@ class App extends Component {
           </nav>
 
           <Route path="/" exact component={TodosList} />
-          <Route path="/edit/:id" component={EditTodo} />
-          <Route path="/create" component={CreateTodo} />
+          <Route path="/edit/:id" component={EditPlayer} />
+          <Route path="/create" component={AddPlayer} />
         </div>
       </Router>
     );

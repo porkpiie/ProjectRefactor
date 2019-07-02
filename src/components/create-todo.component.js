@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class CreateTodo extends Component {
+export default class AddPlayer extends Component {
 
     constructor(props) {
         super(props);
@@ -93,11 +93,11 @@ export default class CreateTodo extends Component {
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityLow"
-                                    value="GK"
-                                    checked={this.state.todo_priority==='GK'}
+                                    value="G"
+                                    checked={this.state.todo_priority==='G'}
                                     onChange={this.onChangeTodoPriority}
                                     />
-                            <label className="form-check-label">GK</label>
+                            <label className="form-check-label">G</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input"

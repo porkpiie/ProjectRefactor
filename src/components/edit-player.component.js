@@ -7,30 +7,30 @@ export default class EditPlayer extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
-        this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
-        this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
-        this.onChangeTodoCompleted = this.onChangeTodoCompleted.bind(this);
+        this.onChangePlayerDescription = this.onChangePlayerDescription.bind(this);
+        this.onChangePlayerTeam = this.onChangePlayerTeam.bind(this);
+        this.onChangePlayerPosition = this.onChangePlayerPosition.bind(this);
+        this.onChangePlayerCompleted = this.onChangePlayerCompleted.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         
 
         this.state = {
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
+            player_description: '',
+            player_team: '',
+            player_position: '',
+            player_scratch: false
         }
-        this.deleteTodo = this.deleteTodo.bind(this);
+        this.deletePlayer = this.deletePlayer.bind(this);
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/todos/'+this.props.match.params.id)
+        axios.get('http://localhost:4000/Players/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    todo_description: response.data.todo_description,
-                    todo_responsible: response.data.todo_responsible,
-                    todo_priority: response.data.todo_priority,
-                    todo_completed: response.data.todo_completed
+                    player_description: response.data.player_description,
+                    player_team: response.data.player_team,
+                    player_position: response.data.player_position,
+                    player_scratch: response.data.player_scratch
                 })   
             })
             .catch(function (error) {
@@ -38,10 +38,10 @@ export default class EditPlayer extends Component {
             })        
     }
 
-    deleteTodo(event) {
+    deletePlayer(event) {
         event.preventDefault();
-        console.log(this.state.todo_description)
-        axios.delete('http://localhost:4000/todos/delete/'+this.props.match.params.id)
+        console.log(this.state.player_description)
+        axios.delete('http://localhost:4000/Players/delete/'+this.props.match.params.id)
           .then(res => {
             console.log(res)
               this.setState({ redirect: this.state.redirect === true })
@@ -51,27 +51,27 @@ export default class EditPlayer extends Component {
 
 
 
-    onChangeTodoDescription(e) {
+    onChangePlayerDescription(e) {
         this.setState({
-            todo_description: e.target.value
+            player_description: e.target.value
         });
     }
 
-    onChangeTodoResponsible(e) {
+    onChangePlayerTeam(e) {
         this.setState({
-            todo_responsible: e.target.value
+            player_team: e.target.value
         });
     }
 
-    onChangeTodoPriority(e) {
+    onChangePlayerPosition(e) {
         this.setState({
-            todo_priority: e.target.value
+            player_position: e.target.value
         });
     }
 
-    onChangeTodoCompleted(e) {
+    onChangePlayerCompleted(e) {
         this.setState({
-            todo_completed: !this.state.todo_completed
+            player_scratch: !this.state.player_scratch
         });
     }
 
@@ -79,13 +79,13 @@ export default class EditPlayer extends Component {
     onSubmit(e) {
         e.preventDefault();
         const obj = {
-            todo_description: this.state.todo_description,
-            todo_responsible: this.state.todo_responsible,
-            todo_priority: this.state.todo_priority,
-            todo_completed: this.state.todo_completed
+            player_description: this.state.player_description,
+            player_team: this.state.player_team,
+            player_position: this.state.player_position,
+            player_scratch: this.state.player_scratch
         };
         console.log(obj);
-        axios.post('http://localhost:4000/todos/update/'+this.props.match.params.id, obj)
+        axios.post('http://localhost:4000/Players/update/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
             this.props.history.push('/');
               
@@ -100,8 +100,8 @@ export default class EditPlayer extends Component {
                         <label>Name: </label>
                         <input  type="text"
                                 className="form-control"
-                                value={this.state.todo_description}
-                                onChange={this.onChangeTodoDescription}
+                                value={this.state.player_description}
+                                onChange={this.onChangePlayerDescription}
                                 />
                     </div>
                     <div className="form-group">
@@ -109,8 +109,8 @@ export default class EditPlayer extends Component {
                         <input 
                                 type="text" 
                                 className="form-control"
-                                value={this.state.todo_responsible}
-                                onChange={this.onChangeTodoResponsible}
+                                value={this.state.player_team}
+                                onChange={this.onChangePlayerTeam}
                                 />
                     </div>
                     <div className="form-group">
@@ -121,8 +121,8 @@ export default class EditPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityLow"
                                     value="G"
-                                    checked={this.state.todo_priority==='G'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='G'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">G</label>
                         </div>
@@ -132,8 +132,8 @@ export default class EditPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityMedium"
                                     value="D"
-                                    checked={this.state.todo_priority==='D'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='D'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">D</label>
                         </div>
@@ -143,8 +143,8 @@ export default class EditPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="LW"
-                                    checked={this.state.todo_priority==='LW'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='LW'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">LW</label>
                         </div>
@@ -154,8 +154,8 @@ export default class EditPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="RW"
-                                    checked={this.state.todo_priority==='RW'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='RW'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">RW</label>
                         </div>
@@ -165,8 +165,8 @@ export default class EditPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="C"
-                                    checked={this.state.todo_priority==='C'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='C'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">C</label>
                         </div>
@@ -176,22 +176,22 @@ export default class EditPlayer extends Component {
                                 id="completedCheckbox"
                                 type="checkbox"
                                 name="completedCheckbox"
-                                onChange={this.onChangeTodoCompleted}
-                                checked={this.state.todo_completed}
-                                value={this.state.todo_completed}
+                                onChange={this.onChangePlayerCompleted}
+                                checked={this.state.player_scratch}
+                                value={this.state.player_scratch}
                                 />
                         <label className="form-check-label" htmlFor="completedCheckbox">
-                            Scratch for now..
+                            Bench for now...
                         </label>                        
                     </div>
 
                     <br />
 
                     <div className="form-group">
-                        <input type="submit" value="Update Todo" className="btn btn-warning" />
+                        <input type="submit" value="Update Player" className="btn btn-warning" />
                     </div>
                     <div>
-                      <button type="button" onClick={this.deleteTodo} className="btn btn-danger" style={{marginBottom: "10px"}}>Delete ToDo</button>
+                      <button type="button" onClick={this.deletePlayer} className="btn btn-danger" style={{marginBottom: "10px"}}>Delete Player</button>
                     </div>
                 </form>
             </div>

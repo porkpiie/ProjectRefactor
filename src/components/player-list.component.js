@@ -3,28 +3,28 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 
-const Todo = props => (
+const Player = props => (
     <tr>
-        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
-        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_responsible}</td>
-        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_priority}</td>
+        <td className={props.Player.player_scratch ? 'completed' : ''}>{props.Player.player_description}</td>
+        <td className={props.Player.player_scratch ? 'completed' : ''}>{props.Player.player_team}</td>
+        <td className={props.Player.player_scratch ? 'completed' : ''}>{props.Player.player_position}</td>
         <td>
-            <NavLink to={"/edit/"+props.todo._id}>Edit</NavLink>
+            <NavLink to={"/edit/"+props.Player._id}>Edit</NavLink>
         </td>
     </tr>
 )
 
-export default class TodosList extends Component {
+export default class PlayerList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {todos: []};
+        this.state = {Players: []};
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/todos/')
+        axios.get('http://localhost:4000/Players/')
         .then(response => {
-            this.setState({ todos: response.data });
+            this.setState({ Players: response.data });
             
         })
         .catch(function (error){
@@ -33,9 +33,9 @@ export default class TodosList extends Component {
     }
 
 
-    todoList() {
-        return this.state.todos.map(function(currentTodo, i){
-            return <Todo todo={currentTodo} key={i} />;
+    PlayerList() {
+        return this.state.Players.map(function(currentPlayer, i){
+            return <Player Player={currentPlayer} key={i} />;
         })
     }
 
@@ -54,7 +54,7 @@ export default class TodosList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.todoList() }
+                        { this.PlayerList() }
                     </tbody>
                 </table>
         <div>

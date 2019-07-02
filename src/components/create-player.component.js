@@ -6,34 +6,34 @@ export default class AddPlayer extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
-        this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
-        this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
+        this.onChangePlayerDescription = this.onChangePlayerDescription.bind(this);
+        this.onChangePlayerTeam = this.onChangePlayerTeam.bind(this);
+        this.onChangePlayerPosition = this.onChangePlayerPosition.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
+            player_description: '',
+            player_team: '',
+            player_position: '',
+            player_scratch: false
         }
     }
 
-    onChangeTodoDescription(e) {
+    onChangePlayerDescription(e) {
         this.setState({
-            todo_description: e.target.value
+            player_description: e.target.value
         });
     }
 
-    onChangeTodoResponsible(e) {
+    onChangePlayerTeam(e) {
         this.setState({
-            todo_responsible: e.target.value
+            player_team: e.target.value
         });
     }
 
-    onChangeTodoPriority(e) {
+    onChangePlayerPosition(e) {
         this.setState({
-            todo_priority: e.target.value
+            player_position: e.target.value
         });
     }
 
@@ -41,27 +41,27 @@ export default class AddPlayer extends Component {
         e.preventDefault();
         
         console.log(`Form submitted:`);
-        console.log(`Todo Description: ${this.state.todo_description}`);
-        console.log(`Todo Responsible: ${this.state.todo_responsible}`);
-        console.log(`Todo Priority: ${this.state.todo_priority}`);
+        console.log(`Player Description: ${this.state.player_description}`);
+        console.log(`Player Team: ${this.state.player_team}`);
+        console.log(`Player Position: ${this.state.player_position}`);
      
-        const newTodo = {
-            todo_description: this.state.todo_description,
-            todo_responsible: this.state.todo_responsible,
-            todo_priority: this.state.todo_priority,
-            todo_completed: this.state.todo_completed
+        const newPlayer = {
+            player_description: this.state.player_description,
+            player_team: this.state.player_team,
+            player_position: this.state.player_position,
+            player_scratch: this.state.player_scratch
         };
 
-        axios.post('http://localhost:4000/todos/add', newTodo)
+        axios.post('http://localhost:4000/Players/add', newPlayer)
             .then(res => console.log(res.data));
             this.setState({ redirect: this.state.redirect === false })
             this.props.history.push('/');
 
         this.setState({
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
+            player_description: '',
+            player_team: '',
+            player_position: '',
+            player_scratch: false
         })
     }
 
@@ -74,16 +74,16 @@ export default class AddPlayer extends Component {
                         <label>Player Name: </label>
                         <input placeholder="Enter one of your greats..." type="text"
                                 className="form-control"
-                                value={this.state.todo_description}
-                                onChange={this.onChangeTodoDescription}
+                                value={this.state.player_description}
+                                onChange={this.onChangePlayerDescription}
                                 />
                     </div>
                     <div className="form-group">
                         <label>Team: </label>
                         <input placeholder="Their best team or their last team, you decide!" type="text"
                                 className="form-control"
-                                value={this.state.todo_responsible}
-                                onChange={this.onChangeTodoResponsible}
+                                value={this.state.player_team}
+                                onChange={this.onChangePlayerTeam}
                                 />
                     </div>
                     <div className="form-group">
@@ -94,8 +94,8 @@ export default class AddPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityLow"
                                     value="G"
-                                    checked={this.state.todo_priority==='G'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='G'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">G</label>
                         </div>
@@ -105,8 +105,8 @@ export default class AddPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityMedium"
                                     value="D"
-                                    checked={this.state.todo_priority==='D'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='D'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">D</label>
                         </div>
@@ -116,8 +116,8 @@ export default class AddPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="LW"
-                                    checked={this.state.todo_priority==='LW'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='LW'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">LW</label>
                         </div>
@@ -127,8 +127,8 @@ export default class AddPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="RW"
-                                    checked={this.state.todo_priority==='RW'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='RW'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">RW</label>
                         </div>
@@ -138,8 +138,8 @@ export default class AddPlayer extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="C"
-                                    checked={this.state.todo_priority==='C'}
-                                    onChange={this.onChangeTodoPriority}
+                                    checked={this.state.player_position==='C'}
+                                    onChange={this.onChangePlayerPosition}
                                     />
                             <label className="form-check-label">C</label>
                         </div>

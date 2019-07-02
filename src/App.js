@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
-import AddPlayer from "./components/create-todo.component";
-import EditPlayer from "./components/edit-todo.component";
-import TodosList from "./components/todos-list.component";
+import AddPlayer from "./components/create-player.component";
+import EditPlayer from "./components/edit-player.component";
+import PlayerList from "./components/player-list.component";
 
 import logo from "./hockeypng.png";
 
@@ -13,8 +13,8 @@ import logo from "./hockeypng.png";
 
 class App extends Component {
   
-  // changeTodo(todo) {
-  //   this.setState = {todo}
+  // changePlayer(Player) {
+  //   this.setState = {Player}
   // }
 
   render() {
@@ -35,11 +35,9 @@ class App extends Component {
                   <Link to="/create" className="nav-link">Add a player</Link>
                 </li>
               </ul>
-            </div>
-            
+            </div>            
           </nav>
-
-          <Route path="/" exact component={TodosList} />
+          <Route path="/" exact component={PlayerList} />
           <Route path="/edit/:id" component={EditPlayer} />
           <Route path="/create" component={AddPlayer} />
         </div>

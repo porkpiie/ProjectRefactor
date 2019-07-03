@@ -14,12 +14,12 @@ html body {
 } 
 
 #h3, thead {
-  color: rgba(255, 50, 50, 0.747) !important;
+  color: goldenrod !important;
   
 }
 
 input[type=text] {
-  background-color: rgba(255, 217, 0, 0.76);
+  background-color: goldenrod;
   color: rgb(0, 0, 0) !important;
 }
 
@@ -34,7 +34,8 @@ input[type=text] {
   border-radius: 30px;
   -moz-border-radius: 30px;
   -webkit-border-radius: 30px;
-  border: 5px solid navy;
+  border: 5px double whitesmoke;
+  
 }
 
 .completed {

@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import logo from "./hockeypng.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 import AddPlayer from "./components/create-player.component";
 import EditPlayer from "./components/edit-player.component";
 import PlayerList from "./components/player-list.component";
-
-import logo from "./hockeypng.png";
-
-
 
 class App extends Component {
   

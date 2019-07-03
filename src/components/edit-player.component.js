@@ -94,7 +94,7 @@ export default class EditPlayer extends Component {
     render() {
         return (
             <div>
-                <h3 style= {{ marginTop: 20 }} align="center">Though of a better team eh?</h3>
+                <h3 style= {{ marginTop: 20 }} align="center">Thought of a better team eh?</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
                         <label>Name: </label>

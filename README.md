@@ -13,7 +13,7 @@ Please ensure the following are installed and where applicable routed to the PAT
 
 ```
 ```
-5. In cmd C:\mongo
+5. In cmd --> mongo (enter)
 use Players
 ```
 ```

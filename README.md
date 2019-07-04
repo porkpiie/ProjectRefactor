@@ -1,3 +1,17 @@
+## Dependencies Required
+
+Please ensure the following are installed and routed to the PATH
+
+1. Node.js https://nodejs.org/en/ (check with node --v)
+
+2. Nodemon npm install -g nodemon (add to path)
+
+3. Mongodb . Follow installation guide for windows https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/ (change depending on Operating System.
+
+4.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

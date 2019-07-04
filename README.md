@@ -1,6 +1,6 @@
 ## Dependencies Required
 
-Please ensure the following are installed and routed to the PATH
+Please ensure the following are installed and where applicable routed to the PATH
 
 ```
 1. Node.js https://nodejs.org/en/ (check with node --v) (add bin to PATH)

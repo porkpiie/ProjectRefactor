@@ -13,9 +13,22 @@ Please ensure the following are installed and where applicable routed to the PAT
 
 ```
 ```
-in cmd C:\mongo
+5. In cmd C:\mongo
 use Players
 ```
+```
+6. in backend2 --> cmd --> npm start
+This connects the backend to mongodb.
+```
+```
+7. Open http://localhost:4000/Players/
+```
+```
+8. In ProjectRefactor --> cmd --> npm start
+This starts the app and runs in localhost:3000
+```
+
+
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

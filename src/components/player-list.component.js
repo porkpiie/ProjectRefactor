@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 const Player = props => (
     <tr>
         <td className={props.Player.player_scratch ? 'completed' : ''}>{props.Player.player_description}</td>
@@ -15,6 +16,10 @@ const Player = props => (
 )
 
 export default class PlayerList extends Component {
+
+    state = {
+        Players : []
+    }
 
     constructor(props) {
         super(props);
@@ -57,10 +62,7 @@ export default class PlayerList extends Component {
                         { this.PlayerList() }
                     </tbody>
                 </table>
-        <div>
-        <p>&copy; porkpiie 2k19</p>
-        </div>
-            </div>           
+            </div>          
         )
     }
 }

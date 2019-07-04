@@ -7,6 +7,7 @@ import "./index.css";
 import AddPlayer from "./components/create-player.component";
 import EditPlayer from "./components/edit-player.component";
 import PlayerList from "./components/player-list.component";
+import Carousel1 from "./components/carousel.component";
 
 class App extends Component {
   
@@ -29,13 +30,14 @@ class App extends Component {
                   <Link to="/create" className="nav-link">Add a player</Link>
                 </li>
               </ul>
-            </div>            
+            </div>           
           </nav>
           <Route path="/" exact component={PlayerList} />
           <Route path="/edit/:id" component={EditPlayer} />
           <Route path="/create" component={AddPlayer} />
+          <Carousel1></Carousel1> 
         </div>
-      </Router>
+      </Router>  
     );
   }
 }

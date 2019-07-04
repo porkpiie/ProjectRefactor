@@ -10,9 +10,6 @@ import PlayerList from "./components/player-list.component";
 
 class App extends Component {
   
-  // changePlayer(Player) {
-  //   this.setState = {Player}
-  // }
 
   render() {
     return (

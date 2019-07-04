@@ -18,6 +18,11 @@ html body {
   
 }
 
+#FormControlSelect1 {
+  background-color: goldenrod;
+  color: black !important;
+}
+
 input[type=text] {
   background-color: goldenrod;
   color: rgb(0, 0, 0) !important;

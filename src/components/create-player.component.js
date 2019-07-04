@@ -78,13 +78,51 @@ export default class AddPlayer extends Component {
                                 onChange={this.onChangePlayerDescription}
                                 />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label>Team: </label>
                         <input placeholder="Their best team or their last team, you decide!" type="text"
                                 className="form-control"
                                 value={this.state.player_team}
                                 onChange={this.onChangePlayerTeam}
                                 />
+                    </div> */}
+                    <div class="form-group">
+                        <label for="FormControlSelect1">Their best team or their last team, you decide!</label>
+                        <select class="form-control form-control-sm" id="FormControlSelect1"
+                                value={this.state.player_team}
+                                onChange={this.onChangePlayerTeam}>
+                        <option>Anaheim Ducks</option>
+                        <option>Arizona Coyotes</option>
+                        <option>Boston Bruins</option>
+                        <option>Buffalo Sabres</option>
+                        <option>Calgary Flames</option>
+                        <option>Carolina Hurricanes</option>
+                        <option>Chicago Blackhawks</option>
+                        <option>Colorado Avalanche</option>
+                        <option>Columbus Blue Jackets</option>
+                        <option>Dalls Stars</option>
+                        <option>Detroit Red Wings</option>
+                        <option>Edmonton Oilers</option>
+                        <option>Flordia Panthers</option>
+                        <option>Los Angeles Kings</option>
+                        <option>Minnesota Wild</option>
+                        <option>Montreal Canadiens</option>
+                        <option>Nashville Predators</option>
+                        <option>New Jersey Devils</option>
+                        <option>New York Islanders</option>
+                        <option>New York Rangers</option>
+                        <option>Ottawa Senators</option>
+                        <option>Philadelphia Flyers</option>
+                        <option>Pittsburgh Penguins</option>
+                        <option>San Jose Sharks</option>
+                        <option>St. Louis Blues</option>
+                        <option>Tampa Bay Lightning</option>
+                        <option>Toronto Maple Leafs</option>
+                        <option>Vancouver Canucks</option>
+                        <option>Vegas Golden Knights</option>
+                        <option>Washington Capitals</option>
+                        <option>Winnipeg Jets</option>
+                        </select>
                     </div>
                     <div className="form-group">
                         <label>Position: </label><br></br>

@@ -12,7 +12,11 @@ Please ensure the following are installed and where applicable routed to the PAT
 4. Clone backend repository https://github.com/porkpiie/backend2.git
 
 ```
-
+```
+in cmd C:\mongo
+use Players
+```
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

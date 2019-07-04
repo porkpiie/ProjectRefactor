@@ -17,7 +17,7 @@ Please ensure the following are installed and where applicable routed to the PAT
 use Players
 ```
 ```
-6. in backend2 --> cmd --> npm start
+6. In backend2 --> cmd --> npm start
 This connects the backend to mongodb.
 ```
 ```

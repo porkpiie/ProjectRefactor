@@ -1,3 +1,35 @@
+## Dependencies Required
+
+Please ensure the following are installed and where applicable routed to the PATH
+
+```
+1. Node.js https://nodejs.org/en/ (check with node --v) (add bin to PATH)
+
+2. Nodemon npm install -g nodemon (add bin to PATH)
+
+3. Mongodb . Follow installation guide for windows https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/ (change depending on Operating System) (add to path)
+
+4. Clone backend repository https://github.com/porkpiie/backend2.git
+
+```
+```
+5. In cmd --> mongo (enter)
+use Players
+```
+```
+6. In backend2 --> cmd --> npm start
+This connects the backend to mongodb.
+```
+```
+7. Open http://localhost:4000/Players/
+```
+```
+8. In ProjectRefactor --> cmd --> npm start
+This starts the app and runs in localhost:3000
+```
+
+
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
